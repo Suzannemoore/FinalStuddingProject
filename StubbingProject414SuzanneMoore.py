@@ -1,0 +1,166 @@
+"""**********************************************************************************************************
+Suzanne Moore
+CSC 414 G001
+11/9/2020
+USM
+
+In this program we be asking a user to select a state and provide the information:
+
+                            API for:
+                            Coordinates
+                            Weather
+
+                            Functions for:
+                            Capital
+                            Unemployment Rate
+                            Governor
+                            Population
+
+ - using if…elif…else Statements with a function for each individual state with a individual function
+********************************************************************************************************"""
+
+# import request
+import requests
+
+# Mississippi function
+def missi():
+    print("\n--Mississippi Current Details--")
+    print("Population is incomplete")
+    print("Unemployment Rate is incomplete")
+    print("Capital is incomplete")
+    print("Current governor is incomplete \n")
+
+
+# Florida function
+def florida():
+    print("Florida population is incomplete\n")
+
+
+# Texas function
+def texas():
+    print("Texas population is incomplete\n")
+
+
+# California function
+def cali():
+    print("California unemployment Rate is incomplete\n")
+
+
+# Utah function
+def utah():
+    print("Utah unemployment Rate is incomplete\n")
+
+
+# Vermont function
+def verm():
+    print("Vermont population is incomplete\n")
+
+
+# Alabama function
+def alab():
+    print("Alabama capital is incomplete\n")
+
+
+# Louisiana function
+def louisi():
+    print("Louisiana capital is incomplete\n")
+
+
+# New Jersey function
+def newJ():
+    print("New Jersey's current governor is incomplete\n")
+
+
+# Iowa function
+def iowa():
+    print("Iowa's current governor is incomplete\n")
+
+
+# function for API and looping
+def weather_info():
+    # set looping to true
+    looping = True
+    # list of states
+    list_of_states = ['Mississippi', 'Florida', 'Texas', 'California',
+                      'Utah', 'Vermont', 'Alabama', 'Louisiana', 'New Jersey',
+                      'Iowa']
+
+    # while the program is looping we will use number 1 to exit program
+    while looping:
+        # tell user to press 1 to exit the program
+        print('--Enter 1 to EXIT program--')
+
+        # while looping ask user for city and capitalize first lette
+        city = input('Please enter a city: ').capitalize()
+
+        # if city is 1 break loop
+        if city == "1":
+            print("You have selected to Exit the program. Goodbye.")
+            exit()
+            break
+
+        # while looping ask user for city and capitalize first letter
+        state = input('Please enter a state: ').capitalize()
+
+        # if city is 1 break loop
+        if state == "1":
+            print("You have selected to Exit the program. Goodbye.")
+            exit()
+            break
+
+        # if user enters in invalid state
+        if state not in list_of_states:
+            print("Invalid Choice.")
+            continue
+
+        # weather API and KEY
+        weather_api = 'http://api.openweathermap.org/data/2.5/weather?q='
+        weather_key = '&appid=fc623e7c1bc984adfa3864bb04c2fc46'
+
+        # show full api
+        the_api = weather_api + str(city) + ',' + str(state) + weather_key
+
+        # request
+        the_request = requests.get(the_api)
+        main_data = the_request.json()
+
+        # city name
+        city_name = main_data['name']
+        # city coordinates
+        city_coordinates = main_data['coord']
+        # city weather
+        city_weather = main_data['weather']
+        city_weather = city_weather[0]
+
+        # output to user city name and state
+        print('\n--' + str(city_name) + ', ' + str(state) + ' Coordinates--')
+        # city coordinates longitude and latitude
+        print('Longitude: ' + str(city_coordinates['lon']))
+        print('Latitude: ' + str(city_coordinates['lat']))
+
+        print('\n--' + str(city_name) + ', ' + str(state) + ' Weather--')
+        print(city_weather['description'])
+
+        if state == 'Mississippi':
+            missi()
+        elif state == 'Florida':
+            florida()
+        elif state == 'Texas':
+            texas()
+        elif state == 'California':
+            cali()
+        elif state == 'Utah':
+            utah()
+        elif state == 'Vermont':
+            verm()
+        elif state == 'Alabama':
+            alab()
+        elif state == 'Louisiana':
+            louisi()
+        elif state == 'New Jersey':
+            newJ()
+        elif state == 'Iowa':
+            iowa()
+        else:
+            # show user invalid choice ask again for input
+            print("Invalid Choice.")
