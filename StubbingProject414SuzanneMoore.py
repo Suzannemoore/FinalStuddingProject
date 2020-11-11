@@ -21,59 +21,93 @@ In this program we be asking a user to select a state and provide the informatio
 
 # import request
 import requests
+# importing Image class from PIL package
 
 # Mississippi function
 def missi():
-    print("\n--Mississippi Current Details--")
-    print("Population is incomplete")
-    print("Unemployment Rate is incomplete")
-    print("Capital is incomplete")
-    print("Current governor is incomplete \n")
+    print("\n--State Mississippi Current Details--")
+    print("Population: 2,976,149")
+    print("Income Rank: 50th")
+    print("Capital: Jackson")
+    print("Current Governor: Tate Reeves\n")
 
 
 # Florida function
 def florida():
-    print("Florida population is incomplete\n")
+    print("\n--State Florida Current Details--")
+    print("Population: 21,477,737")
+    print("Income Rank: 40th")
+    print("Capital: Tallahassee")
+    print("Current Governor: Ron DeSantis\n")
 
 
 # Texas function
 def texas():
-    print("Texas population is incomplete\n")
-
+    print("\n--State Texas Current Details--")
+    print("Population: 28,995,881")
+    print("Income Rank: 24th")
+    print("Capital: Austin")
+    print("Current Governor: Greg Abbott\n")
 
 # California function
 def cali():
-    print("California unemployment Rate is incomplete\n")
-
+    print("\n--State California Current Details--")
+    print("Population: 39,512,223")
+    print("Income Rank: 9th")
+    print("Capital: Sacramento")
+    print("Current Governor: Gavin Newsom\n")
 
 # Utah function
 def utah():
-    print("Utah unemployment Rate is incomplete\n")
+    print("\n--State Utah Current Details--")
+    print("Population: 3,205,958")
+    print("Income Rank: 14th")
+    print("Capital: Salt Lake City")
+    print("Current Governor: Gary Herbert\n")
 
 
 # Vermont function
 def verm():
-    print("Vermont population is incomplete\n")
+    print("\n--State Vermont Current Details--")
+    print("Population: 623,989")
+    print("Income Rank: 28th")
+    print("Capital: Montpelier")
+    print("Current Governor: Phil Scott\n")
 
 
 # Alabama function
 def alab():
-    print("Alabama capital is incomplete\n")
+    print("\n--State Alabama Current Details--")
+    print("Population: 4,903,185")
+    print("Income Rank: 46th")
+    print("Capital: Montgomery")
+    print("Current Governor: Kay Ivey\n")
 
 
 # Louisiana function
 def louisi():
-    print("Louisiana capital is incomplete\n")
+    print("\n--State Louisiana Current Details--")
+    print("Population: 4,648,794")
+    print("Income Rank: 48th")
+    print("Capital: Baton Rouge")
+    print("Current Governor: John Bel Edwards\n")
 
 
 # New Jersey function
 def newJ():
-    print("New Jersey's current governor is incomplete\n")
-
+    print("\n--State New Jersey Current Details--")
+    print("Population: 4,648,794")
+    print("Income Rank: 48th")
+    print("Capital: Baton Rouge")
+    print("Current Governor: John Bel Edwards\n")
 
 # Iowa function
 def iowa():
-    print("Iowa's current governor is incomplete\n")
+    print("\n--State Iowa Current Details--")
+    print("Population: 3,155,070")
+    print("Income Rank: 26th")
+    print("Capital: Des Moines")
+    print("Current Governor: Kim Reynolds\n")
 
 
 # function for API and looping
@@ -108,9 +142,9 @@ def weather_info():
             exit()
             break
 
-        # if user enters in invalid state
+        # if user enters in invalid state ask user to try again
         if state not in list_of_states:
-            print("Invalid Choice.")
+            print("Invalid Choice for state! Please try again or 1 to exit program.")
             continue
 
         # weather API and KEY
